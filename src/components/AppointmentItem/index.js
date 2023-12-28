@@ -2,11 +2,11 @@ import {format} from 'date-fns'
 import './index.css'
 
 const AppointmentItem = props => {
-  const {appointmentDetails, onChangeStarStatus} = props
+  const {appointmentDetails, toggleIsStarred} = props
   const {id, title, date, isStarred} = appointmentDetails
   const formattedDate = format(new Date(date), 'dd MMMM yyyy, EEEE')
-  const changeStarStatus = () => {
-    onChangeStarStatus(id)
+  const onClickStarIcon = () => {
+    toggleIsStarred(id)
   }
   const starImgUrl = isStarred
     ? 'https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png'
@@ -15,7 +15,12 @@ const AppointmentItem = props => {
     <li className="appointment-item">
       <div className="appointment-title-section">
         <p className="appointment-title">{title}</p>
-        <button type="button" className="star-btn" onClick={changeStarStatus}>
+        <button
+          data-testid="star"
+          type="button"
+          className="star-btn"
+          onClick={onClickStarIcon}
+        >
           <img src={starImgUrl} alt="star" />
         </button>
       </div>

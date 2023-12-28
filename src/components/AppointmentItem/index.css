@@ -2,6 +2,16 @@
   border: 1px solid #b5b7c4;
   border-radius: 15px;
   padding: 20px;
+  margin: 10px 0 10px 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .appointment-item {
+    margin: 10px;
+    width: 45%;
+    max-width: 400px;
+  }
 }
 
 .appointment-title-section {
